@@ -27,9 +27,20 @@ const api = (method, url, params) => {
         url: url,
         method: method,
         baseURL: baseURL,
-        params: method === 'GET' || method === 'DELETE' ? params : null
+        params: method === 'GET' || method === 'DELETE' ? params : null,
+        data: method === 'POST' || method === 'PUT' ? qs.stringify(params) : null,
+        timeout: 10000
     }
+
+    return new Promise((resolve, reject) => {
+        axios(config)
+        .then((res) => {
+            resolve(res)
+        }).catch((response) => {
+            reject(response)
+        })
+    })
 }
 
-
+export defult api;
 
