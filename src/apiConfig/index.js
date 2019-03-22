@@ -42,5 +42,5 @@ const api = (method, url, params) => {
     })
 }
 
-export defult api;
+export default api;
 
